@@ -23,3 +23,14 @@ Feature: Testing Login functionality
       | username        |                 |
       | invalidUsername |                 |
       |                 |                 |
+
+  Scenario: Verify the user (Admin) can logout successfully
+    When the user enters valid "username" and valid "password" and clicks on Login Button
+    And the user click on Logout button
+    Then the user should logout successfully
+
+
+  Scenario: Verify the Front Page link is working
+    When the user enters valid "username" and valid "password" and clicks on Login Button
+    And the user click on Front Page button
+    Then the user should see the home page

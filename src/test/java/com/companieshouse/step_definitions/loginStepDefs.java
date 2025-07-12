@@ -5,6 +5,7 @@ import com.companieshouse.pages.LoginPage;
 import com.companieshouse.utilities.BrowserUtils;
 import com.companieshouse.utilities.ConfigurationReader;
 import com.companieshouse.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -22,6 +23,7 @@ public class loginStepDefs {
     @When("the user enters valid {string} and valid {string} and clicks on Login Button")
     public void the_user_enters_valid_and_valid_and_clicks_on_login_button(String username, String password) {
         loginPage.login(ConfigurationReader.getProperty(username), ConfigurationReader.getProperty(password));
+        BrowserUtils.sleep(3);
 
     }
 
@@ -41,5 +43,25 @@ public class loginStepDefs {
     @When("the user enters the {string} and the {string} and clicks on Login Button")
     public void theUserEntersTheAndTheAndClicksOnLoginButton(String username, String Password) {
         loginPage.login(username, Password);
+    }
+
+    @And("the user click on Logout button")
+    public void theUserClickOnLogoutButton() {
+        loginPage.logoutBtn.click();
+    }
+
+    @Then("the user should logout successfully")
+    public void theUserShouldLogoutSuccessfully() {
+        Assert.assertEquals("https://automationintesting.online/",Driver.getDriver().getCurrentUrl());
+    }
+
+    @And("the user click on Front Page button")
+    public void theUserClickOnFrontPageButton() {
+        loginPage.frontPageBtn.click();
+    }
+
+    @Then("the user should see the home page")
+    public void theUserShouldSeeTheHomePage() {
+        Assert.assertEquals("https://automationintesting.online/",Driver.getDriver().getCurrentUrl());
     }
 }

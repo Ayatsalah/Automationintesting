@@ -23,6 +23,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//a[@href='/admin/message']")
     public WebElement messagesLink;
 
+    @FindBy(xpath = "//a[.='Front Page']")
+    public WebElement frontPageBtn;
+
 
 
     public void login(String username, String password){
