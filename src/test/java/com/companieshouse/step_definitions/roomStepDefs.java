@@ -87,10 +87,6 @@ public class roomStepDefs {
 
     }
 
-    @Then("the user should see room details {string}, {string}, {string}, {string}")
-    public void theUserShouldSeeRoomDetails(String number) {
-
-    }
 
     @Then("the user should see room {string}")
     public void theUserShouldSeeRoom(String number) {

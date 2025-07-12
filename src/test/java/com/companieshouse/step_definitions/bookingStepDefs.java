@@ -90,10 +90,6 @@ public class bookingStepDefs {
         bookingPage.phone.sendKeys(phone);
     }
 
-    @Then("the user should see an error message")
-    public void theUserShouldSeeAnErrorMessage() {
-
-    }
 
     @Then("the user should see an {string} message")
     public void theUserShouldSeeAnMessage(String expectedMeassage) {

@@ -3,7 +3,7 @@ Feature: Testing Login functionality
   Background:
     Given the user on the home page
     When the user clicks on Admin Link
-@wip
+
   Scenario: Verify the user (Admin) can login successfully with valid credentials
     When the user enters valid "username" and valid "password" and clicks on Login Button
     Then the user login successfully

@@ -1,6 +1,6 @@
 Feature: Testing Booking room flow
 
-@1
+
   Scenario Outline: Verify the user can book a room with valid information
     When the user enters valid "<check-in-date>" and "<check-out-date>"
     And the user clicks on check availability button
