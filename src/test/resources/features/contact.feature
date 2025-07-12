@@ -34,3 +34,16 @@ Feature: Contact Test
       | Sarah | sarah@gmail.com | 01234567890 | Query about my reservation |                                                     | Message may not be blank                        |
 
 
+  Scenario Outline: Verify that the admin can see the message
+    When the user fills the following information "<name>","<email>","<phone>","<subject>" and "<message>"
+    And the user clicks on the Submit button
+    And the user clicks on Admin Link
+    And the user enters valid "username" and valid "password" and clicks on Login Button
+    And the user clicks on the Messages link
+    Then the user should see the Name "<name>" and Subject "<subject>"
+
+    Examples:
+      | name  | email           | phone       | subject                 | message                                         |
+      | Sarah | sarah@gmail.com | 01234567890 | You have a new booking! | You have a new booking. They have booked a room |
+
+

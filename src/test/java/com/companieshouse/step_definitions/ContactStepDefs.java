@@ -2,15 +2,19 @@ package com.companieshouse.step_definitions;
 
 import com.companieshouse.pages.ContactPage;
 import com.companieshouse.pages.HomePage;
+import com.companieshouse.pages.LoginPage;
 import com.companieshouse.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class ContactStepDefs {
+    LoginPage loginPage=new LoginPage();
     HomePage homePage = new HomePage();
     ContactPage contactPage = new ContactPage();
     Actions actions = new Actions(Driver.getDriver());
@@ -73,6 +77,25 @@ public class ContactStepDefs {
     public void theUserShouldSeeThisMessageOnTheLastLine(String expectedMessage) {
 
         Assert.assertEquals(expectedMessage, contactPage.successMessage4.getText());
+
+    }
+
+
+    @And("the user clicks on the Messages link")
+    public void theUserClicksOnTheMessagesLink() {
+        loginPage.messagesLink.click();
+    }
+
+    @Then("the user should see the Name {string} and Subject {string}")
+    public void theUserShouldSeeTheNameAndSubject(String name, String subject) {
+       WebElement nameLocator= Driver.getDriver().findElement(By.xpath("//div[@class='col-sm-2']/p[.='"+name+"']"));
+       Assert.assertTrue(nameLocator.isDisplayed());
+       Assert.assertEquals(name,nameLocator.getText());
+
+
+        WebElement subjectLocator= Driver.getDriver().findElement(By.xpath("//div[@class='col-sm-9']/p[.='"+subject+"']"));
+        Assert.assertTrue(subjectLocator.isDisplayed());
+        Assert.assertEquals(subject,subjectLocator.getText());
 
     }
 }

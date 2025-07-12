@@ -20,6 +20,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//button[.='Logout']")
     public WebElement logoutBtn;
 
+    @FindBy(xpath = "//a[@href='/admin/message']")
+    public WebElement messagesLink;
+
 
 
     public void login(String username, String password){
