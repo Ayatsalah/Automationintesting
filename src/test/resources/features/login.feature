@@ -1,5 +1,7 @@
 Feature: Testing Login functionality
 
+  # user=admin
+
   Background:
     Given the user on the home page
     When the user clicks on Admin Link

@@ -45,31 +45,78 @@ The system displays available rooms and allows the reservation to proceed.
 
 ---
 
-## 🐞 Bug 03: Admin can add duplicate room numbers
+##  Bug 03: Users can book reservations with a check-in date later than the check-out date
+
+**Description:**  
+With a test user, I verified that the system allows users to make a reservation where the check-in date is after the check-out date, which should not be allowed.
+
+##  Environment
+- URL: https://automationintesting.online
+
+###  Steps to Reproduce:
+1. Enter a check-in date that is later than the check-out date.
+2. Click on the **Check Availability** button.
+
+###  Expected Result:
+An error message should appear indicating that the check-in date cannot be after the check-out date.
+
+###  Actual Result:
+The system shows available rooms and allows the booking to proceed.
+
+**Severity:** High
+
+##  Bug 04: Admin can add duplicate room numbers
 
 **Description:**  
 An admin can add a room with the same room number multiple times, leading to data duplication.
 
-### ✅ Steps to Reproduce:
+##  Environment
+- URL: https://automationintesting.online
+
+###  Steps to Reproduce:
 1. Log in as an admin.
 2. Add a room with a room number and price.
-3. Click **Create**.
+3. Click **Create** button.
 4. Repeat steps 2 and 3 with the same room number.
 
-### ✅ Expected Result:
+###  Expected Result:
 An error message should be shown indicating that the room number already exists.
 
-### ❌ Actual Result:
+###  Actual Result:
 The system allows adding the same room number multiple times.
 
 **Severity:** High
 
-## 📍 Environment
+---
+##  Bug 05: Admin can add letters and special characters in the room number field
+
+**Description:**
+The admin is able to enter letters and special characters in the Room Number field when creating a new room, which should be restricted to numeric values only.
+
+## Environment:
+
 - URL: https://automationintesting.online
+
+### Steps to Reproduce:
+
+1. Log in as an admin.
+
+2. Enter letters or special characters in the Room Number field.
+
+3. Click **Create** button.
+
+### Expected Result:
+An error message should appear indicating that the room number field must contain only digits.
+
+### Actual Result:
+The system allows the room to be created with invalid room number input.
+
+**Severity:** High
+
 
 ---
 
-##  Bug 04: Reservation form allows invalid characters in name and phone fields
+##  Bug 06: Reservation form allows invalid characters in name and phone fields
 
 **Description:**  
 The first name and last name fields accept numbers and special characters. The phone field accepts letters and special characters.
@@ -96,7 +143,7 @@ The form submits and allows reservations with invalid data.
 
 ---
 
-##  Bug 05: Contact form allows names shorter than 3 letters
+##  Bug 07: Contact form allows names shorter than 3 letters
 
 **Description:**  
 The contact form allows users to submit names with fewer than 3 letters.
@@ -120,23 +167,4 @@ The form submits successfully.
 
 ---
 
-##  Bug 06: Users can book reservations with a check-in date later than the check-out date
-
-**Description:**  
-With a test user, I verified that the system allows users to make a reservation where the check-in date is after the check-out date, which should not be allowed.
-
-##  Environment
-- URL: https://automationintesting.online
-
-###  Steps to Reproduce:
-1. Enter a check-in date that is later than the check-out date.
-2. Click on the **Check Availability** button.
-
-###  Expected Result:
-An error message should appear indicating that the check-in date cannot be after the check-out date.
-
-###  Actual Result:
-The system shows available rooms and allows the booking to proceed.
-
-**Severity:** High
 
