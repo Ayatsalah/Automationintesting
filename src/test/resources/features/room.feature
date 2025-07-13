@@ -39,8 +39,8 @@ Feature: Room Management testing
 
     Examples:
       | number | type   | accessible | price | WiFi | TV  | Radio | Refreshments | Safe | Views |
-      | 107    | Single | true       | 100   | Yes  | Yes | Yes   | Yes          | Yes  | Yes   |
-      | 108    | Double | false      | 100   | No   | No  | No    | No           | No   | No    |
+      | 207    | Single | true       | 100   | Yes  | Yes | Yes   | Yes          | Yes  | Yes   |
+      | 208    | Double | false      | 100   | No   | No  | No    | No           | No   | No    |
 
   Scenario Outline: Verify the Admin can update the existing room
     When the user enters the room "<number>", "<type>", "<accessible>", "<price>", "<WiFi>", "<TV>", "<Radio>", "<Refreshments>", "<Safe>" and "<Views>"
